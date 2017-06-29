@@ -9,11 +9,19 @@
 import UIKit
 
 class completeViewController: UIViewController {
+    
+    @IBOutlet weak var myDate: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let now = Date()
+        let jaLocale = Locale(identifier: "ja_JP")
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy年MM月dd日"
+        myDate.text = df.string(from: now)
+        
     }
 
     override func didReceiveMemoryWarning() {

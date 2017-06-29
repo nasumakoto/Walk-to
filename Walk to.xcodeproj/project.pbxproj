@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF148F9E1F03611D00C5116F /* bronze.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF148F9D1F03611D00C5116F /* bronze.jpg */; };
+		AF148FA41F03B8E200C5116F /* map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF148FA31F03B8E200C5116F /* map.jpg */; };
 		AF4BE1071EFA5855006C42E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE1061EFA5855006C42E7 /* AppDelegate.swift */; };
 		AF4BE1091EFA5855006C42E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE1081EFA5855006C42E7 /* ViewController.swift */; };
 		AF4BE10C1EFA5855006C42E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4BE10A1EFA5855006C42E7 /* Main.storyboard */; };
@@ -14,6 +16,9 @@
 		AF4BE1111EFA5855006C42E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4BE10F1EFA5855006C42E7 /* LaunchScreen.storyboard */; };
 		AF4BE11C1EFA5856006C42E7 /* Walk_toTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE11B1EFA5856006C42E7 /* Walk_toTests.swift */; };
 		AF4BE1271EFA5856006C42E7 /* Walk_toUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE1261EFA5856006C42E7 /* Walk_toUITests.swift */; };
+		AF4BE1B91F02442A006C42E7 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE1B81F02442A006C42E7 /* mainViewController.swift */; };
+		AF4BE1BB1F02461F006C42E7 /* hereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE1BA1F02461F006C42E7 /* hereViewController.swift */; };
+		AF4BE1BD1F024699006C42E7 /* completeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE1BC1F024699006C42E7 /* completeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF148F9D1F03611D00C5116F /* bronze.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bronze.jpg; sourceTree = "<group>"; };
+		AF148FA31F03B8E200C5116F /* map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpg; sourceTree = "<group>"; };
 		AF4BE1031EFA5855006C42E7 /* Walk to.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walk to.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4BE1061EFA5855006C42E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4BE1081EFA5855006C42E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +54,9 @@
 		AF4BE1221EFA5856006C42E7 /* Walk toUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Walk toUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4BE1261EFA5856006C42E7 /* Walk_toUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk_toUITests.swift; sourceTree = "<group>"; };
 		AF4BE1281EFA5856006C42E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF4BE1B81F02442A006C42E7 /* mainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		AF4BE1BA1F02461F006C42E7 /* hereViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hereViewController.swift; sourceTree = "<group>"; };
+		AF4BE1BC1F024699006C42E7 /* completeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = completeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +110,12 @@
 				AF4BE1061EFA5855006C42E7 /* AppDelegate.swift */,
 				AF4BE1081EFA5855006C42E7 /* ViewController.swift */,
 				AF4BE10A1EFA5855006C42E7 /* Main.storyboard */,
+				AF4BE1BC1F024699006C42E7 /* completeViewController.swift */,
+				AF4BE1BA1F02461F006C42E7 /* hereViewController.swift */,
+				AF4BE1B81F02442A006C42E7 /* mainViewController.swift */,
 				AF4BE10D1EFA5855006C42E7 /* Assets.xcassets */,
+				AF148F9D1F03611D00C5116F /* bronze.jpg */,
+				AF148FA31F03B8E200C5116F /* map.jpg */,
 				AF4BE10F1EFA5855006C42E7 /* LaunchScreen.storyboard */,
 				AF4BE1121EFA5855006C42E7 /* Info.plist */,
 			);
@@ -193,6 +208,7 @@
 				TargetAttributes = {
 					AF4BE1021EFA5855006C42E7 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = K8BNBRDS9F;
 						ProvisioningStyle = Automatic;
 					};
 					AF4BE1161EFA5856006C42E7 = {
@@ -235,6 +251,8 @@
 				AF4BE1111EFA5855006C42E7 /* LaunchScreen.storyboard in Resources */,
 				AF4BE10E1EFA5855006C42E7 /* Assets.xcassets in Resources */,
 				AF4BE10C1EFA5855006C42E7 /* Main.storyboard in Resources */,
+				AF148F9E1F03611D00C5116F /* bronze.jpg in Resources */,
+				AF148FA41F03B8E200C5116F /* map.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4BE1BD1F024699006C42E7 /* completeViewController.swift in Sources */,
 				AF4BE1091EFA5855006C42E7 /* ViewController.swift in Sources */,
 				AF4BE1071EFA5855006C42E7 /* AppDelegate.swift in Sources */,
+				AF4BE1BB1F02461F006C42E7 /* hereViewController.swift in Sources */,
+				AF4BE1B91F02442A006C42E7 /* mainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K8BNBRDS9F;
 				INFOPLIST_FILE = "Walk to/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.makotonasu.Walk-to";
@@ -426,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K8BNBRDS9F;
 				INFOPLIST_FILE = "Walk to/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.makotonasu.Walk-to";
@@ -507,6 +530,7 @@
 				AF4BE12D1EFA5856006C42E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF4BE12E1EFA5856006C42E7 /* Build configuration list for PBXNativeTarget "Walk toTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +539,7 @@
 				AF4BE1301EFA5856006C42E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF4BE1311EFA5856006C42E7 /* Build configuration list for PBXNativeTarget "Walk toUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +548,7 @@
 				AF4BE1331EFA5856006C42E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
