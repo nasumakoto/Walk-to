@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Akemi Masuda</key>
+	<dict>
+		<key>name</key>
+		<string>増田 明美</string>
+		<key>record</key>
+		<string>日本初の五輪女子マラソン選手</string>
+		<key>description</key>
+		<string>人はみな長距離走者 </string>
+	</dict>
+	<key>Toshihiko Seko</key>
+	<dict>
+		<key>name</key>
+		<string>瀬古 利彦</string>
+		<key>record</key>
+		<string>&apos;78 &apos;79 &apos;80 福岡国際マラソン3連覇</string>
+		<key>description</key>
+		<string>人は乗り越えられない壁は与えられない</string>
+	</dict>
+	<key>Hiromi Taniguchi</key>
+	<dict>
+		<key>name</key>
+		<string>谷口 浩美</string>
+		<key>record</key>
+		<string>&apos;92 バルセロナ五輪 8位</string>
+		<key>description</key>
+		<string>途中、こけちゃいました</string>
+	</dict>
+	<key>Yuko Arimori</key>
+	<dict>
+		<key>name</key>
+		<string>有森 裕子</string>
+		<key>record</key>
+		<string>&apos;92 &apos;96 五輪 銀メダリスト</string>
+		<key>description</key>
+		<string>出来る時に、出来る事を 出来る範囲で、出来るだけやる</string>
+	</dict>
+	<key>Kenji Kimihara</key>
+	<dict>
+		<key>name</key>
+		<string>君原 健二</string>
+		<key>record</key>
+		<string>&apos;68 メキシコ五輪 銀メダリスト</string>
+		<key>description</key>
+		<string>無駄に終わる努力など、あり得ない</string>
+	</dict>
+	<key>Mizuki Noguchi</key>
+	<dict>
+		<key>name</key>
+		<string>野口 みずき</string>
+		<key>record</key>
+		<string>&apos;04 アテネ五輪 金メダリスト</string>
+		<key>description</key>
+		<string>走った距離は裏切らない</string>
+	</dict>
+	<key>Naoko Takahashi</key>
+	<dict>
+		<key>name</key>
+		<string>高橋 尚子</string>
+		<key>record</key>
+		<string>&apos;00 シドニー五輪 金メダリスト</string>
+		<key>description</key>
+		<string>ちょっとだけ頑張ることを 毎日続けてみよう</string>
+	</dict>
+</dict>
+</plist>

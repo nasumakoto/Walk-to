@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import HealthKit
+import CoreMotion
 
-class mainViewController: UIViewController {
-    
+class mainViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var myDate: UILabel!
     
+    @IBOutlet weak var myTotalDistance: UILabel!
+    
+    @IBOutlet weak var totalProgress: UIProgressView!
+    
+    @IBOutlet weak var nextDistance: UILabel!
+    
     override func viewDidLoad() {
+         super.viewDidLoad()
         
         let now = Date()
         let jaLocale = Locale(identifier: "ja_JP")
@@ -22,13 +30,25 @@ class mainViewController: UIViewController {
         df.dateFormat = "yyyy年MM月dd日"
         myDate.text = df.string(from: now)
         
+        totalProgress.transform = CGAffineTransformMakeScale(1.0, 10.0)  //この行を追加
+        
+        
     }
-    
+
+    // 画面が表示されるたびに毎回発動
+    override func viewWillAppear(_ animated: Bool) {
+        
+ 
+        
+
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        
     }
+    
     
 
     /*
