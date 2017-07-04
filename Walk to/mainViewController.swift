@@ -16,12 +16,15 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var myTotalDistance: UILabel!
     
+    @IBOutlet weak var myDays: UILabel!
     
     @IBOutlet weak var totalProgress: UIProgressView!
     
     @IBOutlet weak var nextDistance: UILabel!
     
     var timer = Timer()
+    
+ 
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -32,7 +35,14 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let df = DateFormatter()
         df.dateFormat = "yyyy年MM月dd日"
         myDate.text = df.string(from: now)
-
+        
+        let calendar = Calendar.current
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 7, day: 1))!
+        var comps: DateComponents
+        
+        comps = calendar.dateComponents([.day], from: dateFrom, to: now)
+        myDays.text = String(comps.day!)
+        print(comps.day!) // 14012
         
     }
 

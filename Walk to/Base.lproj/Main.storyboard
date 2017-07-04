@@ -230,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-7T-skd">
-                                <rect key="frame" x="166" y="190" width="104" height="43"/>
+                                <rect key="frame" x="143" y="190" width="127" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
@@ -322,6 +322,7 @@
                     <tabBarItem key="tabBarItem" title="Walk to" image="walkto" selectedImage="walkto" id="BXR-DE-CGu"/>
                     <connections>
                         <outlet property="myDate" destination="JEV-7e-APU" id="hZw-EH-l0O"/>
+                        <outlet property="myDays" destination="tmd-7T-skd" id="Yr8-bW-dNF"/>
                         <outlet property="myTotalDistance" destination="iWb-YY-cfS" id="sOD-QG-Gqi"/>
                         <outlet property="nextDistance" destination="rcQ-iE-jwf" id="kD1-bL-3cc"/>
                         <outlet property="totalProgress" destination="XKl-2u-g5E" id="5KD-c6-ZhP"/>
