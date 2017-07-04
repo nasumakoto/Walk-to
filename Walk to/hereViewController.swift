@@ -19,6 +19,10 @@ class hereViewController: UIViewController {
     
     @IBOutlet weak var myDescription: UITextView!
     
+   
+    @IBOutlet weak var hereProgress: UIProgressView!
+    
+    var timer = Timer()
     
     
     override func viewDidLoad() {
@@ -56,9 +60,19 @@ class hereViewController: UIViewController {
         print(detailInfo["record"] as! String)
         print(detailInfo["description"] as! String)
         
-    
+        timer = Timer.scheduledTimer(timeInterval: 0.00, target: self, selector: #selector(hereViewController.go), userInfo: nil, repeats: true)
         
     }
+    
+    func go () {
+        
+        hereProgress.progress = 0.000005
+        hereProgress.setProgress(1.0, animated: true)
+        hereProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
+        
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -16,9 +16,12 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var myTotalDistance: UILabel!
     
+    
     @IBOutlet weak var totalProgress: UIProgressView!
     
     @IBOutlet weak var nextDistance: UILabel!
+    
+    var timer = Timer()
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -29,20 +32,27 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let df = DateFormatter()
         df.dateFormat = "yyyy年MM月dd日"
         myDate.text = df.string(from: now)
-        
-        totalProgress.transform = CGAffineTransformMakeScale(1.0, 10.0)  //この行を追加
-        
+
         
     }
 
     // 画面が表示されるたびに毎回発動
     override func viewWillAppear(_ animated: Bool) {
         
- 
+        timer = Timer.scheduledTimer(timeInterval: 0.00, target: self, selector: #selector(mainViewController.go), userInfo: nil, repeats: true)
         
 
     }
 
+    
+    
+    func go () {
+        
+        totalProgress.progress = 0.000005
+        totalProgress.setProgress(1.0, animated: true)
+        totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
+    
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
