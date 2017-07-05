@@ -14,7 +14,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var myDate: UILabel!
     
-    @IBOutlet weak var myTotalDistance: UILabel!
+    @IBOutlet weak var stepCountLabel: UILabel!
     
     @IBOutlet weak var myDays: UILabel!
     
@@ -26,12 +26,12 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     let healthKitStore = HKHealthStore()
     
- 
+    let now = Date()
     
     override func viewDidLoad() {
          super.viewDidLoad()
         
-        let now = Date()
+        
         let jaLocale = Locale(identifier: "ja_JP")
         
         let df = DateFormatter()
@@ -45,6 +45,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
         myDays.text = String(comps.day!)
         print(comps.day!) // 14012
+
         
     }
 
@@ -59,16 +60,12 @@ class mainViewController: UIViewController, UITextFieldDelegate {
             {
                 recentSteps() { steps, error in
                     DispatchQueue.main.async {
-//                        self.myTotalDistance.text = String(format:"%.0f", steps)
+                        self.stepCountLabel.text = String(format:"%.0f", steps)
                     }
                 }
                 
-                
-                
             }
         }
-        
-        
         
     }
 
@@ -81,6 +78,8 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
     
     }
+    
+    
     
     func updateStepCount()
     {
@@ -120,7 +119,11 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         
         
         let calendar = Calendar.current
-        let yesterday = calendar.date(byAdding: Calendar.Component.hour, value: -24, to: Date())
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 7, day: 1))!
+        var comps: DateComponents
+        
+        comps = calendar.dateComponents([.day], from: dateFrom, to: now)
+        let yesterday = calendar.date(byAdding: Calendar.Component.day, value: -(comps.day!), to: Date())
         
         
         let predicate = HKQuery.predicateForSamples(withStart: yesterday, end: Date(), options: [])
@@ -145,7 +148,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                             distance += result.quantity.doubleValue(for: HKUnit.meter())
                             print(result.quantity.doubleValue(for: HKUnit.meter()))
                             distanceInt = Int(distance)
-                            self.myTotalDistance.text = "\(distanceInt)"
+                            self.stepCountLabel.text = "\(distanceInt)"
                         }
                     }
                 }
@@ -154,7 +157,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
             }
             
             if error != nil {
-                completion(distance, error as! NSError)
+                completion(steps, error as! NSError)
             }
             
         }
