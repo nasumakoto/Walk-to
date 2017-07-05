@@ -39,7 +39,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         myDate.text = df.string(from: now)
         
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 7, day: 1))!
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 6, day: 1))!
         var comps: DateComponents
         
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
@@ -119,7 +119,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         
         
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 7, day: 1))!
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 6, day: 1))!
         var comps: DateComponents
         
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
@@ -133,7 +133,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let query = HKSampleQuery(sampleType: healthKitTypesToRead!, predicate: predicate, limit: 0, sortDescriptors: nil) { query, results, error in
             var steps: Double = 0
             var distance: Double = 0
-            var distanceInt:Int = 0
+            var distanceInt:Float = 0
             
             if results != nil {
                 if (results?.count)! > 0
@@ -147,9 +147,9 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                             //何メートル換算で距離を取得
                             distance += result.quantity.doubleValue(for: HKUnit.meter())
                             print(result.quantity.doubleValue(for: HKUnit.meter()))
-                            distanceInt = Int(distance)
-                            self.stepCountLabel.text = "\(distanceInt)"
-                        }
+                            distanceInt = Float(distance)
+                            distance.round(.down)
+                            self.stepCountLabel.text = "\(distanceInt/1000)"                       }
                     }
                 }
                 
