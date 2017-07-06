@@ -143,7 +143,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let query = HKSampleQuery(sampleType: healthKitTypesToRead!, predicate: predicate, limit: 0, sortDescriptors: nil) { query, results, error in
             var steps: Double = 0
             var distance: Double = 0
-            var distanceInt:Float = 0
+            var distanceInt:Double = 0
             
             if results != nil {
                 if (results?.count)! > 0
@@ -157,12 +157,12 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                             //何メートル換算で距離を取得
                             distance += result.quantity.doubleValue(for: HKUnit.meter())
                             print(result.quantity.doubleValue(for: HKUnit.meter()))
-                            distanceInt = Float(distance/1000)
+                            distanceInt = Double(distance/1000)
                             
                             let formatter = NumberFormatter()
                             formatter.numberStyle = .decimal
                             formatter.maximumFractionDigits = 2
-                            formatter.positiveFormat = "0.000"
+                            formatter.positiveFormat = "0.0"
                             formatter.roundingMode = .floor
                             self.num = NSNumber(value:distanceInt)
                             self.stepCountLabel.text = formatter.string(from: self.num)!
@@ -170,16 +170,16 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
                 
-            let average = Float(comps.day!)
+            let average = Double(comps.day!)
             let formatter = NumberFormatter()
                 formatter.numberStyle = .decimal
                 formatter.maximumFractionDigits = 2
-                formatter.positiveFormat = "0.000"
+                formatter.positiveFormat = "0.0"
                 formatter.roundingMode = .floor
             self.num = NSNumber(value:(distanceInt / average))
             self.myAverage.text = formatter.string(from: self.num)!
                 
-            let beginner = Float(200.000)
+            let beginner = Double(200.000)
             self.nextClass = NSNumber(value:(beginner - distanceInt))
             self.nextDistance.text = formatter.string(from: self.nextClass)!
 
