@@ -16,7 +16,11 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var stepCountLabel: UILabel!
     
+    @IBOutlet weak var myStartDay: UILabel!
+    
     @IBOutlet weak var myDays: UILabel!
+    
+    @IBOutlet weak var myAverage: UILabel!
     
     @IBOutlet weak var totalProgress: UIProgressView!
     
@@ -27,6 +31,10 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     let healthKitStore = HKHealthStore()
     
     let now = Date()
+    
+    var num = NSNumber()
+    
+    var nextClass = NSNumber()
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -45,6 +53,8 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
         myDays.text = String(comps.day!)
         print(comps.day!) // 14012
+        
+        myStartDay.text = df.string(for:dateFrom)
 
         
     }
@@ -60,7 +70,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
             {
                 recentSteps() { steps, error in
                     DispatchQueue.main.async {
-                        self.stepCountLabel.text = String(format:"%.0f", steps)
+                        self.stepCountLabel.text = String(format:"%.3f", steps)
                     }
                 }
                 
@@ -147,11 +157,32 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                             //何メートル換算で距離を取得
                             distance += result.quantity.doubleValue(for: HKUnit.meter())
                             print(result.quantity.doubleValue(for: HKUnit.meter()))
-                            distanceInt = Float(distance)
-                            distance.round(.down)
-                            self.stepCountLabel.text = "\(distanceInt/1000)"                       }
+                            distanceInt = Float(distance/1000)
+                            
+                            let formatter = NumberFormatter()
+                            formatter.numberStyle = .decimal
+                            formatter.maximumFractionDigits = 2
+                            formatter.positiveFormat = "0.000"
+                            formatter.roundingMode = .floor
+                            self.num = NSNumber(value:distanceInt)
+                            self.stepCountLabel.text = formatter.string(from: self.num)!
+                        }
                     }
                 }
+                
+            let average = Float(comps.day!)
+            let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal
+                formatter.maximumFractionDigits = 2
+                formatter.positiveFormat = "0.000"
+                formatter.roundingMode = .floor
+            self.num = NSNumber(value:(distanceInt / average))
+            self.myAverage.text = formatter.string(from: self.num)!
+                
+            let beginner = Float(200.000)
+            self.nextClass = NSNumber(value:(beginner - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+
                 
                 
             }
