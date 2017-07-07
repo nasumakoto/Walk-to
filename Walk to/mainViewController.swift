@@ -26,6 +26,8 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nextDistance: UILabel!
     
+    @IBOutlet weak var myClassImage: UIImageView!
+    
     var timer = Timer()
     
     let healthKitStore = HKHealthStore()
@@ -36,9 +38,9 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     var nextClass = NSNumber()
     
+    
     override func viewDidLoad() {
          super.viewDidLoad()
-        
         
         let jaLocale = Locale(identifier: "ja_JP")
         
@@ -47,7 +49,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         myDate.text = df.string(from: now)
         
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 6, day: 1))!
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
         var comps: DateComponents
         
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
@@ -55,9 +57,9 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         print(comps.day!) // 14012
         
         myStartDay.text = df.string(for:dateFrom)
-
         
     }
+    
 
     // 画面が表示されるたびに毎回発動
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +80,6 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-
     
     
     func go () {
@@ -129,7 +130,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         
         
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 6, day: 1))!
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
         var comps: DateComponents
         
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
@@ -182,8 +183,20 @@ class mainViewController: UIViewController, UITextFieldDelegate {
             let beginner = Double(200.000)
             self.nextClass = NSNumber(value:(beginner - distanceInt))
             self.nextDistance.text = formatter.string(from: self.nextClass)!
-
                 
+                if distanceInt < 200.0 {
+                    self.myClassImage.image = UIImage(named:"beginner")
+                } else if distanceInt < 500.0 {
+                    self.myClassImage.image = UIImage(named:"bronze")
+                } else if distanceInt < 1000.0 {
+                    self.myClassImage.image = UIImage(named:"silver")
+                } else if distanceInt < 2000.0 {
+                    self.myClassImage.image = UIImage(named:"gold")
+                } else if distanceInt < 3000.0 {
+                    self.myClassImage.image = UIImage(named:"platinum")
+                } else if distanceInt >= 3000.0 {
+                    self.myClassImage.image = UIImage(named:"diamond")
+                }
                 
             }
             

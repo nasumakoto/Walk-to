@@ -10,6 +10,7 @@
 		AF0EC7631F04ECAB00924171 /* playerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF0EC7621F04ECAB00924171 /* playerList.plist */; };
 		AF148FA41F03B8E200C5116F /* map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF148FA31F03B8E200C5116F /* map.jpg */; };
 		AF24FB3C1F092DD60088A048 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF24FB3B1F092DD60088A048 /* CoreMotion.framework */; };
+		AF2FE4C41F0F4EB4001A291F /* distance.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2FE4C31F0F4EB4001A291F /* distance.plist */; };
 		AF4BE1071EFA5855006C42E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE1061EFA5855006C42E7 /* AppDelegate.swift */; };
 		AF4BE1091EFA5855006C42E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BE1081EFA5855006C42E7 /* ViewController.swift */; };
 		AF4BE10C1EFA5855006C42E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4BE10A1EFA5855006C42E7 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		AF0EC7621F04ECAB00924171 /* playerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = playerList.plist; path = ../playerList.plist; sourceTree = "<group>"; };
 		AF148FA31F03B8E200C5116F /* map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpg; sourceTree = "<group>"; };
 		AF24FB3B1F092DD60088A048 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		AF2FE4C31F0F4EB4001A291F /* distance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = distance.plist; sourceTree = "<group>"; };
 		AF4BE1031EFA5855006C42E7 /* Walk to.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walk to.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4BE1061EFA5855006C42E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4BE1081EFA5855006C42E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,10 +130,11 @@
 				AF4BE10D1EFA5855006C42E7 /* Assets.xcassets */,
 				AF148FA31F03B8E200C5116F /* map.jpg */,
 				AF999A521F08DB05000D4D34 /* kanagawa.jpg */,
-				AF0EC7621F04ECAB00924171 /* playerList.plist */,
 				AFEC3FDA1F0CAFB6009903F8 /* HealthKitTest.xcdatamodeld */,
 				AF999A4A1F0737A7000D4D34 /* Walk to.entitlements */,
 				AF4BE10F1EFA5855006C42E7 /* LaunchScreen.storyboard */,
+				AF0EC7621F04ECAB00924171 /* playerList.plist */,
+				AF2FE4C31F0F4EB4001A291F /* distance.plist */,
 				AF4BE1121EFA5855006C42E7 /* Info.plist */,
 			);
 			path = "Walk to";
@@ -280,6 +283,7 @@
 				AF999A531F08DB05000D4D34 /* kanagawa.jpg in Resources */,
 				AF4BE1111EFA5855006C42E7 /* LaunchScreen.storyboard in Resources */,
 				AF0EC7631F04ECAB00924171 /* playerList.plist in Resources */,
+				AF2FE4C41F0F4EB4001A291F /* distance.plist in Resources */,
 				AF4BE10E1EFA5855006C42E7 /* Assets.xcassets in Resources */,
 				AF4BE10C1EFA5855006C42E7 /* Main.storyboard in Resources */,
 				AF148FA41F03B8E200C5116F /* map.jpg in Resources */,
