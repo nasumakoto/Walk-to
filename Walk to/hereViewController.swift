@@ -31,12 +31,16 @@ class hereViewController: UIViewController {
     
     @IBOutlet weak var nextTodofuken: UIImageView!
 
+    @IBOutlet weak var hereDistance: UILabel!
     
     var timer = Timer()
     
     let now = Date()
  
     var nextClass = NSNumber()
+    
+    var here = NSNumber()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +65,20 @@ class hereViewController: UIViewController {
         formatter.positiveFormat = "0.0"
         formatter.roundingMode = .up
         
+        let formatter2 = NumberFormatter()
+        formatter2.numberStyle = .decimal
+        formatter2.maximumFractionDigits = 2
+        formatter2.positiveFormat = "0.0"
+        formatter2.roundingMode = .floor
+        
         let hokkaido = distanceInt - 277.29
         
         if distanceInt < 277.2 {
             self.hereCity.text = "稚内(宗谷岬)"
             self.myDistance.text = "277.2"
             self.nextCity.text = "北海道(札幌)"
+            self.here = NSNumber((value:distanceInt))
+            self.hereDistance.text = formatter2.string(from: self.here)!
             self.nextClass = NSNumber(value:(277.2 - distanceInt))
             self.nextDistance.text = formatter.string(from: self.nextClass)!
             self.nextTodofuken.image = UIImage(named:"kanagawa.jpg")
@@ -77,6 +89,8 @@ class hereViewController: UIViewController {
             self.hereCity.text = "北海道(札幌)"
             self.myDistance.text = "253.8"
             self.nextCity.text = "青森県(青森)"
+            self.here = NSNumber(value: distanceInt - 277.2)
+            self.hereDistance.text = formatter2.string(from: self.here)!
             self.nextClass = NSNumber(value:(531.0 - distanceInt))
             self.nextDistance.text = formatter.string(from: self.nextClass)!
             self.nextTodofuken.image = UIImage(named:"aomori")

@@ -49,7 +49,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         myDate.text = df.string(from: now)
         
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 1, day: 1))!
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
         var comps: DateComponents
         
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
@@ -126,7 +126,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let healthKitTypesToRead = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)
   
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 6, day: 15))!
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
         var comps: DateComponents
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
         let yesterday = calendar.date(byAdding: Calendar.Component.day, value: -(comps.day!), to: Date())
