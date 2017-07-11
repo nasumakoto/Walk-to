@@ -2,13 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>500</key>
+	<key>bronze</key>
 	<dict>
+		<key>distance</key>
+		<string>500.0</string>
 		<key>class</key>
 		<string>bronze.jpg</string>
 	</dict>
-	<key>200</key>
+	<key>beginner</key>
 	<dict>
+		<key>distance</key>
+		<string>200.0</string>
 		<key>class</key>
 		<string>beginner.jpg</string>
 	</dict>

@@ -24,7 +24,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var totalProgress: UIProgressView!
     
-    @IBOutlet weak var nextDistance: UILabel!
+   @IBOutlet weak var nextDistance: UILabel!
     
     @IBOutlet weak var myClassImage: UIImageView!
     
@@ -49,7 +49,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         myDate.text = df.string(from: now)
         
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 1, day: 1))!
         var comps: DateComponents
         
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
@@ -57,14 +57,6 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         print(comps.day!) // 14012
         
         myStartDay.text = df.string(for:dateFrom)
-        
-    }
-    
-
-    // 画面が表示されるたびに毎回発動
-    override func viewWillAppear(_ animated: Bool) {
-        
-        timer = Timer.scheduledTimer(timeInterval: 0.00, target: self, selector: #selector(mainViewController.go), userInfo: nil, repeats: true)
         
         if(checkAuthorization())
         {
@@ -77,24 +69,27 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                 }
                 
             }
+        
         }
+        
+        go ()
         
     }
     
+
+    // 画面が表示されるたびに毎回発動
+    override func viewWillAppear(_ animated: Bool) {
+    
+        }
     
     func go () {
-        
-        totalProgress.progress = 0.000005
-        totalProgress.setProgress(1.0, animated: true)
         totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
     
     }
     
-    
-    
     func updateStepCount()
     {
-        
+
     }
     
     func checkAuthorization() -> Bool
@@ -124,22 +119,19 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         return isEnabled
     }
     
+    
+    
     func recentSteps(completion: @escaping (Double, NSError?) -> () )
     {
         let healthKitTypesToRead = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)
-        
-        
+  
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
+        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 6, day: 15))!
         var comps: DateComponents
-        
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
         let yesterday = calendar.date(byAdding: Calendar.Component.day, value: -(comps.day!), to: Date())
         
-        
         let predicate = HKQuery.predicateForSamples(withStart: yesterday, end: Date(), options: [])
-        
-        
         
         let query = HKSampleQuery(sampleType: healthKitTypesToRead!, predicate: predicate, limit: 0, sortDescriptors: nil) { query, results, error in
             var steps: Double = 0
@@ -158,48 +150,69 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                             //何メートル換算で距離を取得
                             distance += result.quantity.doubleValue(for: HKUnit.meter())
                             print(result.quantity.doubleValue(for: HKUnit.meter()))
-                            distanceInt = Double(distance/1000)
-                            
-                            let formatter = NumberFormatter()
-                            formatter.numberStyle = .decimal
-                            formatter.maximumFractionDigits = 2
-                            formatter.positiveFormat = "0.0"
-                            formatter.roundingMode = .floor
-                            self.num = NSNumber(value:distanceInt)
-                            self.stepCountLabel.text = formatter.string(from: self.num)!
+                             distanceInt = Double(distance/1000)
                         }
                     }
                 }
                 
-            let average = Double(comps.day!)
-            let formatter = NumberFormatter()
+                //global変数に代入
+                // AppDelegateにアクセスするための準備
+                let myApp = UIApplication.shared.delegate as! AppDelegate
+                myApp.distanceInt = Double(distanceInt)
+                
+                print(myApp.distanceInt)
+                
+                let distanceInt:Double = myApp.distanceInt
+                
+                let formatter = NumberFormatter()
                 formatter.numberStyle = .decimal
                 formatter.maximumFractionDigits = 2
                 formatter.positiveFormat = "0.0"
                 formatter.roundingMode = .floor
-            self.num = NSNumber(value:(distanceInt / average))
-            self.myAverage.text = formatter.string(from: self.num)!
+                self.num = NSNumber(value:distanceInt)
+                self.stepCountLabel.text = formatter.string(from: self.num)!
                 
-            let beginner = Double(200.000)
-            self.nextClass = NSNumber(value:(beginner - distanceInt))
-            self.nextDistance.text = formatter.string(from: self.nextClass)!
+                let average = Double(comps.day!)
+                formatter.numberStyle = .decimal
+                formatter.maximumFractionDigits = 2
+                formatter.positiveFormat = "0.0"
+                formatter.roundingMode = .up
+                self.num = NSNumber(value:(distanceInt / average))
+                self.myAverage.text = formatter.string(from: self.num)!
                 
                 if distanceInt < 200.0 {
+                    self.nextClass = NSNumber(value:(200.0 - distanceInt))
+                    self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"beginner")
-                } else if distanceInt < 500.0 {
+                    self.totalProgress.progress = Float(NSNumber(value: distanceInt / 200.0))
+                }else if distanceInt < 500.0 {
+                    self.nextClass = NSNumber(value:(500.0 - distanceInt))
+                    self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"bronze")
-                } else if distanceInt < 1000.0 {
+                    self.totalProgress.progress = Float(NSNumber(value: distanceInt / 500.0))
+                }else if distanceInt < 1000.0 {
+                    self.nextClass = NSNumber(value:(1000.0 - distanceInt))
+                    self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"silver")
-                } else if distanceInt < 2000.0 {
+                }else if distanceInt < 2000.0 {
+                    self.nextClass = NSNumber(value:(2000.0 - distanceInt))
+                    self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"gold")
-                } else if distanceInt < 3000.0 {
+                }else if distanceInt < 3000.0 {
+                    self.nextClass = NSNumber(value:(3000.0 - distanceInt))
+                    self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"platinum")
-                } else if distanceInt >= 3000.0 {
+                }else if distanceInt >= 3000.0 {
+                    self.nextClass = NSNumber(value:0)
+                    self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"diamond")
                 }
                 
+                
+                
+                
             }
-            
+        
             if error != nil {
                 completion(steps, error as! NSError)
             }
@@ -209,8 +222,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         healthKitStore.execute(query)
     }
 
-  
-    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

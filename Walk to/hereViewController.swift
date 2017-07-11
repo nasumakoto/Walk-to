@@ -19,11 +19,24 @@ class hereViewController: UIViewController {
     
     @IBOutlet weak var myDescription: UITextView!
     
-   
     @IBOutlet weak var hereProgress: UIProgressView!
+    
+    @IBOutlet weak var hereCity: UILabel!
+    
+    @IBOutlet weak var nextCity: UILabel!
+    
+    @IBOutlet weak var myDistance: UILabel!
+    
+    @IBOutlet weak var nextDistance: UILabel!
+    
+    @IBOutlet weak var nextTodofuken: UIImageView!
+
     
     var timer = Timer()
     
+    let now = Date()
+ 
+    var nextClass = NSNumber()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +48,44 @@ class hereViewController: UIViewController {
         df.dateFormat = "yyyy年MM月dd日"
         myDate.text = df.string(from: now)
         
-    
+        
+        // AppDelegateにアクセスするための準備
+        let myApp = UIApplication.shared.delegate as! AppDelegate
+        let distanceInt:Double = myApp.distanceInt
+        
+        print(distanceInt)
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        formatter.positiveFormat = "0.0"
+        formatter.roundingMode = .up
+        
+        let hokkaido = distanceInt - 277.29
+        
+        if distanceInt < 277.2 {
+            self.hereCity.text = "稚内(宗谷岬)"
+            self.myDistance.text = "277.2"
+            self.nextCity.text = "北海道(札幌)"
+            self.nextClass = NSNumber(value:(277.2 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"kanagawa.jpg")
+            hereProgress.progress = Float(NSNumber(value:distanceInt / 277.29))
+            print(hereProgress.progress)
+            
+        } else if distanceInt < 531.0 {
+            self.hereCity.text = "北海道(札幌)"
+            self.myDistance.text = "253.8"
+            self.nextCity.text = "青森県(青森)"
+            self.nextClass = NSNumber(value:(531.0 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"aomori")
+            hereProgress.progress = Float(NSNumber(value:hokkaido / 253.8))
+            print(hereProgress.progress)
+        }
+        
     }
+    
     
     
     
@@ -60,18 +109,15 @@ class hereViewController: UIViewController {
         print(detailInfo["record"] as! String)
         print(detailInfo["description"] as! String)
         
-        timer = Timer.scheduledTimer(timeInterval: 0.00, target: self, selector: #selector(hereViewController.go), userInfo: nil, repeats: true)
+        go ()
         
     }
     
     func go () {
-        
-        hereProgress.progress = 0.000005
-        hereProgress.setProgress(1.0, animated: true)
+//        hereProgress.setProgress(5.0, animated: true)
         hereProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
         
     }
-    
     
 
     override func didReceiveMemoryWarning() {
