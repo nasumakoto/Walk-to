@@ -210,25 +210,12 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkp-4O-QF8">
-                                <rect key="frame" x="37" y="149" width="113" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6N7-Uu-AZE">
-                                <rect key="frame" x="56" y="203" width="71" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Complete" image="complete" selectedImage="complete" id="OnP-SR-V8C"/>
                     <connections>
+                        <outlet property="completeMapImage" destination="sP2-1I-Ktx" id="Lyx-ph-lrE"/>
                         <outlet property="myDate" destination="ArX-5n-bVX" id="j1Q-i2-3v1"/>
                     </connections>
                 </viewController>
@@ -375,6 +362,10 @@
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zem-Fs-xsL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -385,6 +376,7 @@
                         <outlet property="myDate" destination="JEV-7e-APU" id="hZw-EH-l0O"/>
                         <outlet property="myDays" destination="tmd-7T-skd" id="Yr8-bW-dNF"/>
                         <outlet property="myStartDay" destination="3aV-9e-zsq" id="aT4-G9-kUf"/>
+                        <outlet property="myStartImage" destination="Zem-Fs-xsL" id="OR5-9L-jgw"/>
                         <outlet property="nextDistance" destination="rcQ-iE-jwf" id="kD1-bL-3cc"/>
                         <outlet property="stepCountLabel" destination="iWb-YY-cfS" id="lVY-Eb-QGX"/>
                         <outlet property="totalProgress" destination="XKl-2u-g5E" id="5KD-c6-ZhP"/>

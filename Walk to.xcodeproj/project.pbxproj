@@ -24,6 +24,9 @@
 		AF999A4D1F0737A8000D4D34 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF999A4C1F0737A8000D4D34 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		AF999A531F08DB05000D4D34 /* kanagawa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF999A521F08DB05000D4D34 /* kanagawa.jpg */; };
 		AFEC3FDC1F0CAFB6009903F8 /* HealthKitTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AFEC3FDA1F0CAFB6009903F8 /* HealthKitTest.xcdatamodeld */; };
+		AFEFDD0E1F17460F0049F6BD /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = AFEFDD0D1F17460F0049F6BD /* loading.gif */; };
+		AFEFDD141F17CE230049F6BD /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEFDD131F17CE230049F6BD /* UIImage+Gif.swift */; };
+		AFEFDD161F17CE760049F6BD /* loading_m.gif in Resources */ = {isa = PBXBuildFile; fileRef = AFEFDD151F17CE760049F6BD /* loading_m.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		AF999A4C1F0737A8000D4D34 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		AF999A521F08DB05000D4D34 /* kanagawa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kanagawa.jpg; sourceTree = "<group>"; };
 		AFEC3FDB1F0CAFB6009903F8 /* HealthKitTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthKitTest.xcdatamodel; sourceTree = "<group>"; };
+		AFEFDD0D1F17460F0049F6BD /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		AFEFDD131F17CE230049F6BD /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		AFEFDD151F17CE760049F6BD /* loading_m.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading_m.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				AF4BE1061EFA5855006C42E7 /* AppDelegate.swift */,
+				AFEFDD131F17CE230049F6BD /* UIImage+Gif.swift */,
 				AF4BE1081EFA5855006C42E7 /* ViewController.swift */,
 				AF4BE10A1EFA5855006C42E7 /* Main.storyboard */,
 				AF4BE1BC1F024699006C42E7 /* completeViewController.swift */,
@@ -132,6 +139,8 @@
 				AF999A521F08DB05000D4D34 /* kanagawa.jpg */,
 				AFEC3FDA1F0CAFB6009903F8 /* HealthKitTest.xcdatamodeld */,
 				AF999A4A1F0737A7000D4D34 /* Walk to.entitlements */,
+				AFEFDD0D1F17460F0049F6BD /* loading.gif */,
+				AFEFDD151F17CE760049F6BD /* loading_m.gif */,
 				AF4BE10F1EFA5855006C42E7 /* LaunchScreen.storyboard */,
 				AF0EC7621F04ECAB00924171 /* playerList.plist */,
 				AF2FE4C31F0F4EB4001A291F /* distance.plist */,
@@ -285,6 +294,8 @@
 				AF0EC7631F04ECAB00924171 /* playerList.plist in Resources */,
 				AF2FE4C41F0F4EB4001A291F /* distance.plist in Resources */,
 				AF4BE10E1EFA5855006C42E7 /* Assets.xcassets in Resources */,
+				AFEFDD161F17CE760049F6BD /* loading_m.gif in Resources */,
+				AFEFDD0E1F17460F0049F6BD /* loading.gif in Resources */,
 				AF4BE10C1EFA5855006C42E7 /* Main.storyboard in Resources */,
 				AF148FA41F03B8E200C5116F /* map.jpg in Resources */,
 			);
@@ -313,6 +324,7 @@
 			files = (
 				AF4BE1BD1F024699006C42E7 /* completeViewController.swift in Sources */,
 				AF4BE1091EFA5855006C42E7 /* ViewController.swift in Sources */,
+				AFEFDD141F17CE230049F6BD /* UIImage+Gif.swift in Sources */,
 				AF4BE1071EFA5855006C42E7 /* AppDelegate.swift in Sources */,
 				AF4BE1BB1F02461F006C42E7 /* hereViewController.swift in Sources */,
 				AFEC3FDC1F0CAFB6009903F8 /* HealthKitTest.xcdatamodeld in Sources */,

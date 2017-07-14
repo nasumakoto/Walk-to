@@ -28,6 +28,8 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var myClassImage: UIImageView!
     
+    @IBOutlet weak var myStartImage: UIImageView!
+    
     var timer = Timer()
     
     let healthKitStore = HKHealthStore()
@@ -42,14 +44,58 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
          super.viewDidLoad()
         
-        let jaLocale = Locale(identifier: "ja_JP")
+        myStartImage.isHidden = false
+        let image = UIImage.gif(name: "loading")
+        myStartImage.image = image
+        
+//        let jaLocale = Locale(identifier: "ja_JP")
         
         let df = DateFormatter()
         df.dateFormat = "yyyy年MM月dd日"
+        df.timeZone = TimeZone.ReferenceType.local
         myDate.text = df.string(from: now)
         
+        let yy = DateFormatter()
+        yy.timeZone = TimeZone.ReferenceType.local
+        yy.dateFormat = "yyyy"
+        let dlYear = yy.string(from: now)
+        let MM = DateFormatter()
+        MM.timeZone = TimeZone.ReferenceType.local
+        MM.dateFormat = "MM"
+        let dlMonth = MM.string(from: now)
+        let dd = DateFormatter()
+        dd.timeZone = TimeZone.ReferenceType.local
+        dd.dateFormat = "dd"
+        let dlday = dd.string(from: now)
+        print(dlYear)
+        print(dlMonth)
+        print(dlday)
+        
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
+        let dateFrom = calendar.date(from: DateComponents(year: Int(dlYear), month: Int(dlMonth), day: Int(dlday)))!
+        
+        var myDefault = UserDefaults.standard
+        //        var firstDay = Date()
+        if myDefault.object(forKey: "now") != nil {
+            let now = myDefault.object(forKey: "now") as! Date
+        }else{
+            myDefault.set(now, forKey: "now")
+            myDefault.synchronize()
+        }
+        
+//        let calendar = Calendar.current
+//        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
+//        var myDefault = UserDefaults.standard
+//        
+//        var dateFrom = Date()
+//        
+//        if myDefault.object(forKey: "dateFrom") != nil {
+//            dateFrom = myDefault.object(forKey: "dateFrom") as! Date
+//        }else{
+//            myDefault.set(dateFrom, forKey: "dateFrom")
+//            myDefault.synchronize()
+//        }
+        
         var comps: DateComponents
         
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
@@ -64,21 +110,23 @@ class mainViewController: UIViewController, UITextFieldDelegate {
             {
                 recentSteps() { steps, error in
                     DispatchQueue.main.async {
-                        self.stepCountLabel.text = String(format:"%.3f", steps)
+                        self.stepCountLabel.text = String(format:"%.0f", steps)
                     }
+                    
                 }
                 
             }
-        
+            
         }
         
-        go ()
         
     }
     
 
     // 画面が表示されるたびに毎回発動
     override func viewWillAppear(_ animated: Bool) {
+
+        go ()
     
         }
     
@@ -124,9 +172,38 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     func recentSteps(completion: @escaping (Double, NSError?) -> () )
     {
         let healthKitTypesToRead = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)
-  
+        
+        let yy = DateFormatter()
+        yy.timeZone = TimeZone.ReferenceType.local
+        yy.dateFormat = "yyyy"
+        let dlYear = yy.string(from: now)
+        let MM = DateFormatter()
+        MM.timeZone = TimeZone.ReferenceType.local
+        MM.dateFormat = "MM"
+        let dlMonth = MM.string(from: now)
+        let dd = DateFormatter()
+        dd.timeZone = TimeZone.ReferenceType.local
+        dd.dateFormat = "dd"
+        let dlday = dd.string(from: now)
+        print(dlYear)
+        print(dlMonth)
+        print(dlday)
+
         let calendar = Calendar.current
-        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 5, day: 8))!
+//        let dateFrom = calendar.date(from: DateComponents(year: 2017, month: 7, day: 14))!
+
+       let dateFrom = calendar.date(from: DateComponents(year: Int(dlYear), month: Int(dlMonth), day: Int(dlday)))!
+        
+        var myDefault = UserDefaults.standard
+//        var firstDay = Date()
+        if myDefault.object(forKey: "now") != nil {
+        let now = myDefault.object(forKey: "now") as! Date
+        }else{
+            myDefault.set(now, forKey: "now")
+            myDefault.synchronize()
+        }
+
+        
         var comps: DateComponents
         comps = calendar.dateComponents([.day], from: dateFrom, to: now)
         let yesterday = calendar.date(byAdding: Calendar.Component.day, value: -(comps.day!), to: Date())
@@ -146,7 +223,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                         if(result.device?.model == "iPhone")
                         {
                             
-                            //                            steps += result.quantity.doubleValue(for: HKUnit.count())
+                            //steps += result.quantity.doubleValue(for: HKUnit.count())
                             //何メートル換算で距離を取得
                             distance += result.quantity.doubleValue(for: HKUnit.meter())
                             print(result.quantity.doubleValue(for: HKUnit.meter()))
@@ -172,6 +249,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                 self.num = NSNumber(value:distanceInt)
                 self.stepCountLabel.text = formatter.string(from: self.num)!
                 
+                
                 let average = Double(comps.day!)
                 formatter.numberStyle = .decimal
                 formatter.maximumFractionDigits = 2
@@ -185,11 +263,15 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"beginner")
                     self.totalProgress.progress = Float(NSNumber(value: distanceInt / 200.0))
+
+
                 }else if distanceInt < 500.0 {
                     self.nextClass = NSNumber(value:(500.0 - distanceInt))
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"bronze")
                     self.totalProgress.progress = Float(NSNumber(value: distanceInt / 500.0))
+                    
+                    
                 }else if distanceInt < 1000.0 {
                     self.nextClass = NSNumber(value:(1000.0 - distanceInt))
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
@@ -209,19 +291,21 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 
-                
-                
             }
-        
+            self.myStartImage.isHidden = true
+
             if error != nil {
                 completion(steps, error as! NSError)
+                
             }
+            
             
         }
         
         healthKitStore.execute(query)
-    }
-
+        
+            }
+    
 
     
     override func didReceiveMemoryWarning() {

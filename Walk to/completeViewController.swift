@@ -11,7 +11,9 @@ import UIKit
 class completeViewController: UIViewController {
     
     @IBOutlet weak var myDate: UILabel!
-
+    
+    @IBOutlet weak var completeMapImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,24 @@ class completeViewController: UIViewController {
         let df = DateFormatter()
         df.dateFormat = "yyyy年MM月dd日"
         myDate.text = df.string(from: now)
+        
+    }
+    
+        // 画面が表示されるたびに毎回発動
+        override func viewWillAppear(_ animated: Bool) {
+        
+        // AppDelegateにアクセスするための準備
+        let myApp = UIApplication.shared.delegate as! AppDelegate
+        let distanceInt:Double = myApp.distanceInt
+        
+        print(distanceInt)
+        
+        if distanceInt < 277.2 {
+            self.completeMapImage.image = UIImage(named:"comp")
+        } else if distanceInt < 531.0 {
+            self.completeMapImage.image = UIImage(named:"wakkanai")
+        }
+        
         
     }
 
