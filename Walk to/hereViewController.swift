@@ -9,7 +9,7 @@
 import UIKit
 import HealthKit
 
-class hereViewController: UIViewController {
+class hereViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var myDate: UILabel!
     
