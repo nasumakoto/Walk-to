@@ -141,7 +141,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func pushBtn(_ sender: UIButton) {
-
+        txtDate.becomeFirstResponder()
     }
     
     //完了を押すとピッカーの値を、テキストフィールドに挿入して、ピッカーを閉じる
@@ -151,6 +151,14 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         myStartDay.text = df.string(for: pickerDate)
         
         self.view.endEditing(true)
+        
+        var myDefault = UserDefaults.standard
+        
+        // データを書き込んで
+        myDefault.set(pickerDate, forKey: "startDay")
+        
+        // 即反映させる
+        myDefault.synchronize()
         
         
         if(checkAuthorization())
@@ -172,13 +180,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let image = UIImage.gif(name: "loading")
         myStartImage.image = image
         
-        var myDefault = UserDefaults.standard
-        
-        // データを書き込んで
-        myDefault.set(pickerDate, forKey: "startDay")
-        
-        // 即反映させる
-        myDefault.synchronize()
+
         
  
         
@@ -189,12 +191,13 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     // 画面が表示されるたびに毎回発動
     override func viewWillAppear(_ animated: Bool) {
         
-        func go () {
-            totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
-        }
+     go ()
     
     }
 
+    func go () {
+        totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
+    }
 
     func updateStepCount()
     {
@@ -336,31 +339,31 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"beginner")
                     self.totalProgress.progress = Float(NSNumber(value: distanceInt / 200.0))
-                    
-                    
                 }else if distanceInt < 500.0 {
                     self.nextClass = NSNumber(value:(500.0 - distanceInt))
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"bronze")
                     self.totalProgress.progress = Float(NSNumber(value: distanceInt / 500.0))
-                    
-                    
                 }else if distanceInt < 1000.0 {
                     self.nextClass = NSNumber(value:(1000.0 - distanceInt))
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"silver")
+                    self.totalProgress.progress = Float(NSNumber(value: distanceInt / 1000.0))
                 }else if distanceInt < 2000.0 {
                     self.nextClass = NSNumber(value:(2000.0 - distanceInt))
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"gold")
+                    self.totalProgress.progress = Float(NSNumber(value: distanceInt / 2000.0))
                 }else if distanceInt < 3000.0 {
                     self.nextClass = NSNumber(value:(3000.0 - distanceInt))
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"platinum")
+                    self.totalProgress.progress = Float(NSNumber(value: distanceInt / 3000.0))
                 }else if distanceInt >= 3000.0 {
                     self.nextClass = NSNumber(value:0)
                     self.nextDistance.text = formatter.string(from: self.nextClass)!
                     self.myClassImage.image = UIImage(named:"diamond")
+                    self.totalProgress.progress = 0.2
                 }
                 
                 self.myStartImage.isHidden = true
