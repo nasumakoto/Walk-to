@@ -460,6 +460,181 @@ class hereViewController: UIViewController,UITextFieldDelegate {
             self.nextTodofuken.image = UIImage(named:"kagawa")
             let okayama = distanceInt - 2966.9
             hereProgress.progress = Float(NSNumber(value:okayama / 37.0))
+        } else if distanceInt < 3060.4 {
+            self.hereCity.text = "香川県(高松)"
+            self.myDistance.text = "56.5"
+            self.nextCity.text = "徳島県(徳島)"
+            self.here = NSNumber(value: distanceInt - 3003.9)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3060.4 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"tokushima")
+            let kagawa = distanceInt - 3003.9
+            hereProgress.progress = Float(NSNumber(value:kagawa / 56.5))
+        } else if distanceInt < 3170.9 {
+            self.hereCity.text = "徳島県(徳島)"
+            self.myDistance.text = "110.5"
+            self.nextCity.text = "高知県(高知)"
+            self.here = NSNumber(value: distanceInt - 3060.4)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3170.9 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"kouchi")
+            let tokushima = distanceInt - 3060.4
+            hereProgress.progress = Float(NSNumber(value:tokushima / 110.5))
+        } else if distanceInt < 3248.4 {
+            self.hereCity.text = "高知県(高知)"
+            self.myDistance.text = "77.5"
+            self.nextCity.text = "愛媛県(松山)"
+            self.here = NSNumber(value: distanceInt - 3170.9)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3248.4 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"ehime")
+            let kouchi = distanceInt - 3170.9
+            hereProgress.progress = Float(NSNumber(value:kouchi / 77.5))
+        } else if distanceInt < 3316.1 {
+            self.hereCity.text = "愛媛県(松山)"
+            self.myDistance.text = "67.7"
+            self.nextCity.text = "広島県(広島)"
+            self.here = NSNumber(value: distanceInt - 3248.4)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3316.1 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"hiroshima")
+            let ehime = distanceInt - 3248.4
+            hereProgress.progress = Float(NSNumber(value:ehime / 67.7))
+        } else if distanceInt < 3447.1 {
+            self.hereCity.text = "広島県(広島)"
+            self.myDistance.text = "131.0"
+            self.nextCity.text = "島根県(松江)"
+            self.here = NSNumber(value: distanceInt - 3316.1)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3447.1 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"shimane")
+            let hiroshima = distanceInt - 3316.1
+            hereProgress.progress = Float(NSNumber(value:hiroshima / 131.0))
+        } else if distanceInt < 3650.2 {
+            self.hereCity.text = "島根県(松江)"
+            self.myDistance.text = "203.1"
+            self.nextCity.text = "山口県(山口)"
+            self.here = NSNumber(value: distanceInt - 3447.1)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3650.2 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"yamaguchi")
+            let shimane = distanceInt - 3447.1
+            hereProgress.progress = Float(NSNumber(value:shimane / 203.1))
+        } else if distanceInt < 3766.9 {
+            self.hereCity.text = "山口県(山口)"
+            self.myDistance.text = "116.7"
+            self.nextCity.text = "福岡県(福岡)"
+            self.here = NSNumber(value: distanceInt - 3650.2)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3766.9 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"fukuoka")
+            let yamaguchi = distanceInt - 3650.2
+            hereProgress.progress = Float(NSNumber(value:yamaguchi / 116.7))
+        } else if distanceInt < 3808.0 {
+            self.hereCity.text = "福岡県(福岡)"
+            self.myDistance.text = "41.1"
+            self.nextCity.text = "佐賀県(佐賀)"
+            self.here = NSNumber(value: distanceInt - 3766.9)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3808.0 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"saga")
+            let fukuoka = distanceInt - 3766.9
+            hereProgress.progress = Float(NSNumber(value:fukuoka / 41.1))
+        } else if distanceInt < 3876.1 {
+            self.hereCity.text = "佐賀県(佐賀)"
+            self.myDistance.text = "68.1"
+            self.nextCity.text = "長崎県(長崎)"
+            self.here = NSNumber(value: distanceInt - 3808.0)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3876.1 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"nagasaki")
+            let saga = distanceInt - 3808.0
+            hereProgress.progress = Float(NSNumber(value:saga / 68.1))
+        } else if distanceInt < 3957.6 {
+            self.hereCity.text = "長崎県(長崎)"
+            self.myDistance.text = "81.5"
+            self.nextCity.text = "熊本県(熊本)"
+            self.here = NSNumber(value: distanceInt - 3876.1)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(3957.6 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"kumamoto")
+            let nagasaki = distanceInt - 3876.1
+            hereProgress.progress = Float(NSNumber(value:nagasaki / 81.5))
+        } else if distanceInt < 4053.0 {
+            self.hereCity.text = "熊本県(熊本)"
+            self.myDistance.text = "95.4"
+            self.nextCity.text = "大分県(大分)"
+            self.here = NSNumber(value: distanceInt - 3957.6)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(4053.0 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"oita")
+            let kumamoto = distanceInt - 3957.6
+            hereProgress.progress = Float(NSNumber(value:kumamoto / 95.4))
+        } else if distanceInt < 4201.2 {
+            self.hereCity.text = "大分県(大分)"
+            self.myDistance.text = "148.2"
+            self.nextCity.text = "宮崎県(宮崎)"
+            self.here = NSNumber(value: distanceInt - 4053.0)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(4201.2 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"miyazaki")
+            let oita = distanceInt - 4053.0
+            hereProgress.progress = Float(NSNumber(value:oita / 148.2))
+        } else if distanceInt < 4292.0 {
+            self.hereCity.text = "宮崎県(宮崎)"
+            self.myDistance.text = "90.8"
+            self.nextCity.text = "鹿児島県(鹿児島)"
+            self.here = NSNumber(value: distanceInt - 4201.2)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(4292.0 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"kagoshima")
+            let miyazaki = distanceInt - 4201.2
+            hereProgress.progress = Float(NSNumber(value:miyazaki / 90.8))
+        } else if distanceInt < 4947.7 {
+            self.hereCity.text = "鹿児島県(鹿児島)"
+            self.myDistance.text = "655.7"
+            self.nextCity.text = "沖縄県(那覇)"
+            self.here = NSNumber(value: distanceInt - 4292.0)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(4947.7 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"okinawa")
+            let kagoshima = distanceInt - 4292.0
+            hereProgress.progress = Float(NSNumber(value:kagoshima / 655.7))
+        } else if distanceInt < 5464.6 {
+            self.hereCity.text = "沖縄県(那覇)"
+            self.myDistance.text = "516.9"
+            self.nextCity.text = "与那国島"
+            self.here = NSNumber(value: distanceInt - 4947.7)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(5464.6 - distanceInt))
+            self.nextDistance.text = formatter.string(from: self.nextClass)!
+            self.nextTodofuken.image = UIImage(named:"yonakuni")
+            let okinawa = distanceInt - 4947.7
+            hereProgress.progress = Float(NSNumber(value:okinawa / 516.9))
+        } else if distanceInt >= 5464.6 {
+            self.hereCity.text = "与那国島"
+            self.myDistance.text = "COMPLETE"
+            self.nextCity.text = "COMPLETE"
+            self.here = NSNumber(value: distanceInt - 5464.6)
+            self.hereDistance.text = formatter2.string(from: self.here)!
+            self.nextClass = NSNumber(value:(0))
+            self.nextDistance.text = "0"
+            self.nextTodofuken.image = UIImage(named:"yonakuni")
+            hereProgress.progress = 1.0
         }
         
         
