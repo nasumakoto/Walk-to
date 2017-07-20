@@ -48,24 +48,29 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     let inputDatePicker = UIDatePicker()
     
+    
     override func viewDidLoad() {
          super.viewDidLoad()
         
         myStartImage.isHidden = false
         let image = UIImage.gif(name: "loading")
         myStartImage.image = image
-
         
         df.dateFormat = "yyyy年MM月dd日"
         df.timeZone = TimeZone.ReferenceType.local
         myDate.text = df.string(from: now)
         print(df.string(from: now))
         
+        
         //UserDefaultからdataをとりだす
         //もし保存されている情報が存在しない場合、trueを初期値とする
         var myDefault = UserDefaults.standard
         
-        var startDate = Date()
+        var calendar = Calendar.current
+        var startDate = calendar.date(byAdding: .day, value: -1, to: calendar.startOfDay(for: now))
+
+        
+//        var startDate = Date()
 
         if myDefault.object(forKey: "startDay") != nil {
             startDate = myDefault.object(forKey: "startDay") as! Date
@@ -76,27 +81,27 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let yy = DateFormatter()
         yy.timeZone = TimeZone.ReferenceType.local
         yy.dateFormat = "yyyy"
-        let dlYear = yy.string(from: pickerDate)
+        let dlYear = yy.string(from: pickerDate!)
         let MM = DateFormatter()
         MM.timeZone = TimeZone.ReferenceType.local
         MM.dateFormat = "MM"
-        let dlMonth = MM.string(from: pickerDate)
+        let dlMonth = MM.string(from: pickerDate!)
         let dd = DateFormatter()
         dd.timeZone = TimeZone.ReferenceType.local
         dd.dateFormat = "dd"
-        let dlday = dd.string(from: pickerDate)
+        let dlday = dd.string(from: pickerDate!)
         print(dlYear)
         print(dlMonth)
         print(dlday)
         
+//        let pickerDate = inputDatePicker.date
+        myStartDay.text = df.string(for: pickerDate)
+        
 //        let calendar = Calendar.current
-//        let dateFrom = calendar.date(from: DateComponents(year: Int(dlYear), month: Int(dlMonth), day: Int(dlday)))!
-      myStartDay.text = df.string(for: pickerDate)
+        let dateFrom = calendar.date(from: DateComponents(year: Int(dlYear), month: Int(dlMonth), day: Int(dlday)))!
+//      myStartDay.text = df.string(for: pickerDate)
 //      myStartDay.text = df.string(for:dateFrom)
         
-        
-//
-////////////////////////////////////////////////////////////////////
         
         // DatePickerの設定(日付用)
         inputDatePicker.datePickerMode = UIDatePickerMode.date
@@ -119,9 +124,6 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         pickerToolBar.items = [spaceBarBtn,toolBarBtn]
         txtDate.inputAccessoryView = pickerToolBar
 
-////////////////////////////////////////////////////////////////////
-
-        
         if(checkAuthorization())
         {
             if(HKHealthStore.isHealthDataAvailable())
@@ -133,7 +135,14 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                     
                 }
                 
+            }else {
+            self.myStartImage.isHidden = true
+                
+
             }
+            
+        }else {
+            self.myStartImage.isHidden = true
             
         }
         
@@ -180,30 +189,10 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let image = UIImage.gif(name: "loading")
         myStartImage.image = image
         
-
-        
- 
         
     }
     
-
-
-    // 画面が表示されるたびに毎回発動
-    override func viewWillAppear(_ animated: Bool) {
-        
-     go ()
     
-    }
-
-    func go () {
-        totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
-    }
-
-    func updateStepCount()
-    {
-
-    }
-
     func checkAuthorization() -> Bool
     {
         var isEnabled = true
@@ -221,6 +210,14 @@ class mainViewController: UIViewController, UITextFieldDelegate {
             
             healthKitStore.requestAuthorization(toShare: nil, read: healthKitTypesToRead, completion: { (success, error) in
                 isEnabled = success
+                self.recentSteps() { steps, error in
+                    DispatchQueue.main.async {
+                        self.stepCountLabel.text = String(format:"%.0f", steps)
+                    }
+                    
+                }
+                
+                
             })
         }
         else
@@ -231,7 +228,29 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         return isEnabled
     }
     
+
+
+    // 画面が表示されるたびに毎回発動
+    override func viewWillAppear(_ animated: Bool) {
+        
+        df.dateFormat = "yyyy年MM月dd日"
+        df.timeZone = TimeZone.ReferenceType.local
+        myDate.text = df.string(from: now)
+        print(df.string(from: now))
+        
+     go ()
     
+    }
+
+    func go () {
+        totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
+    }
+
+    func updateStepCount()
+    {
+
+    }
+
     
     func recentSteps(completion: @escaping (Double, NSError?) -> () )
     {
@@ -242,7 +261,8 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         //もし保存されている情報が存在しない場合、trueを初期値とする
         var myDefault = UserDefaults.standard
         
-        var startDate = Date()
+        let calendar = Calendar.current
+        var startDate = calendar.date(byAdding: .day, value: -1, to: calendar.startOfDay(for: now))
         
         if myDefault.object(forKey: "startDay") != nil {
             startDate = myDefault.object(forKey: "startDay") as! Date
@@ -254,20 +274,20 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         let yy = DateFormatter()
         yy.timeZone = TimeZone.ReferenceType.local
         yy.dateFormat = "yyyy"
-        let dlYear = yy.string(from: pickerDate)
+        let dlYear = yy.string(from: pickerDate!)
         let MM = DateFormatter()
         MM.timeZone = TimeZone.ReferenceType.local
         MM.dateFormat = "MM"
-        let dlMonth = MM.string(from: pickerDate)
+        let dlMonth = MM.string(from: pickerDate!)
         let dd = DateFormatter()
         dd.timeZone = TimeZone.ReferenceType.local
         dd.dateFormat = "dd"
-        let dlday = dd.string(from: pickerDate)
+        let dlday = dd.string(from: pickerDate!)
         print(dlYear)
         print(dlMonth)
         print(dlday)
         
-        let calendar = Calendar.current
+//        let calendar = Calendar.current
         let dateFrom = calendar.date(from: DateComponents(year: Int(dlYear), month: Int(dlMonth), day: Int(dlday)))!
         
         //        myStartDay.text = df.string(for:dateFrom)
@@ -367,18 +387,19 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 self.myStartImage.isHidden = true
+
                 
             }
             
             if error != nil {
                 completion(steps, error as! NSError)
                         }
+
         }
         
         
         healthKitStore.execute(query)
-
-            
+        
         
 }
 

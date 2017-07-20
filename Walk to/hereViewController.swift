@@ -45,10 +45,7 @@ class hereViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let df = DateFormatter()
-        df.dateFormat = "yyyy年MM月dd日"
-        df.timeZone = TimeZone.ReferenceType.local
-        myDate.text = df.string(from: now)
+
 
     }
     
@@ -56,6 +53,11 @@ class hereViewController: UIViewController,UITextFieldDelegate {
     
     // 画面が表示されるたびに毎回発動
     override func viewWillAppear(_ animated: Bool) {
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy年MM月dd日"
+        df.timeZone = TimeZone.ReferenceType.local
+        myDate.text = df.string(from: now)
         
         var player = ["Naoko Takahashi","Mizuki Noguchi","Kenji Kimihara","Yuko Arimori","Hiromi Taniguchi","Toshihiko Seko","Akemi Masuda"]
         

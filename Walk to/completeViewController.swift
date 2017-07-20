@@ -14,20 +14,25 @@ class completeViewController: UIViewController {
     
     @IBOutlet weak var completeMapImage: UIImageView!
     
+    let now = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let now = Date()
         
-        let df = DateFormatter()
-        df.dateFormat = "yyyy年MM月dd日"
-        df.timeZone = TimeZone.ReferenceType.local
-        myDate.text = df.string(from: now)
+
         
     }
     
         // 画面が表示されるたびに毎回発動
         override func viewWillAppear(_ animated: Bool) {
+            
+        let df = DateFormatter()
+        df.dateFormat = "yyyy年MM月dd日"
+        df.timeZone = TimeZone.ReferenceType.local
+        myDate.text = df.string(from: now)
+            
+            
         
         // AppDelegateにアクセスするための準備
         let myApp = UIApplication.shared.delegate as! AppDelegate
