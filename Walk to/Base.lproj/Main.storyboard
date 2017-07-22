@@ -266,7 +266,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017年6月28日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArX-5n-bVX">
-                                <rect key="frame" x="0.0" y="28" width="320" height="56"/>
+                                <rect key="frame" x="0.0" y="28" width="190.5" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="E0E-Yz-eVy"/>
@@ -276,8 +276,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sP2-1I-Ktx">
-                                <rect key="frame" x="16" y="92" width="288" height="419"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sP2-1I-Ktx">
+                                <rect key="frame" x="16" y="280.5" width="158.5" height="230.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sP2-1I-Ktx" secondAttribute="height" multiplier="288:419" id="1KW-fe-rk7"/>
                                 </constraints>
@@ -371,7 +371,7 @@
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beginner" translatesAutoresizingMaskIntoConstraints="NO" id="zJm-Dd-Cwk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="silver" translatesAutoresizingMaskIntoConstraints="NO" id="zJm-Dd-Cwk">
                                 <rect key="frame" x="17" y="317" width="288" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zJm-Dd-Cwk" secondAttribute="height" multiplier="288:191" id="BgL-Q8-iAE"/>
@@ -580,10 +580,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="beginner" width="576" height="380"/>
         <image name="complete" width="25" height="25"/>
         <image name="here" width="25" height="25"/>
         <image name="setting" width="124" height="44"/>
+        <image name="silver" width="576" height="380"/>
         <image name="walkto" width="25" height="25"/>
     </resources>
 </document>

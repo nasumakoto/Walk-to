@@ -48,6 +48,8 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     let inputDatePicker = UIDatePicker()
     
+    var healtFlag = true // HealthKitが使える時はtrue、使えないときはfalse
+    
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -123,9 +125,11 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         //ツールバーにボタンを表示
         pickerToolBar.items = [spaceBarBtn,toolBarBtn]
         txtDate.inputAccessoryView = pickerToolBar
+        
 
         if(checkAuthorization())
         {
+            print("yeah")
             if(HKHealthStore.isHealthDataAvailable())
             {
                 recentSteps() { steps, error in
@@ -137,13 +141,14 @@ class mainViewController: UIViewController, UITextFieldDelegate {
                 
             }else {
             self.myStartImage.isHidden = true
-                
+                healtFlag = false
 
             }
             
         }else {
             self.myStartImage.isHidden = true
-            
+            healtFlag = false
+
         }
         
         
@@ -233,15 +238,30 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     // 画面が表示されるたびに毎回発動
     override func viewWillAppear(_ animated: Bool) {
         
-        df.dateFormat = "yyyy年MM月dd日"
-        df.timeZone = TimeZone.ReferenceType.local
-        myDate.text = df.string(from: now)
-        print(df.string(from: now))
+//        df.dateFormat = "yyyy年MM月dd日"
+//        df.timeZone = TimeZone.ReferenceType.local
+//        myDate.text = df.string(from: now)
+//        print(df.string(from: now))
         
      go ()
     
     }
+    
+   
+    
+     override func viewDidAppear(_ animated: Bool) {
 
+        if healtFlag == false{
+        let alertController = UIAlertController(title:"このアプリはiPadではご利用できません", message:"このアプリはiPhone専用です。iPadではご利用できません。", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertController,animated: true,completion: nil)
+        }
+
+    }
+    
+    
+    
+   
     func go () {
         totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 7.0)
     }

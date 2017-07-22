@@ -244,7 +244,7 @@
 				TargetAttributes = {
 					AF4BE1021EFA5855006C42E7 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = K8BNBRDS9F;
+						DevelopmentTeam = SKN8G2728G;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -483,10 +483,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Walk to/Walk to.entitlements";
-				DEVELOPMENT_TEAM = K8BNBRDS9F;
+				DEVELOPMENT_TEAM = SKN8G2728G;
 				INFOPLIST_FILE = "Walk to/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.makotonasu.Walk-to";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makotonasu.WalkToApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -498,10 +498,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Walk to/Walk to.entitlements";
-				DEVELOPMENT_TEAM = K8BNBRDS9F;
+				DEVELOPMENT_TEAM = SKN8G2728G;
 				INFOPLIST_FILE = "Walk to/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.makotonasu.Walk-to";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makotonasu.WalkToApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
