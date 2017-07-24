@@ -35,6 +35,7 @@ class completeViewController: UIViewController {
     
     func swipeRight(){
         self.tabBarController!.selectedIndex = 1
+//        UIView.animate(withDuration:10.1, animations:{[weak self] in self?.view?.layoutIfNeeded()}, completion:nil)
     }
 
         // 画面が表示されるたびに毎回発動

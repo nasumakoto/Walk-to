@@ -265,8 +265,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017年6月28日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArX-5n-bVX">
-                                <rect key="frame" x="0.0" y="28" width="190.5" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000年00月00日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArX-5n-bVX">
+                                <rect key="frame" x="0.0" y="28" width="216" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="E0E-Yz-eVy"/>
@@ -277,7 +277,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sP2-1I-Ktx">
-                                <rect key="frame" x="16" y="280.5" width="158.5" height="230.5"/>
+                                <rect key="frame" x="16" y="243.5" width="184" height="267.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sP2-1I-Ktx" secondAttribute="height" multiplier="288:419" id="1KW-fe-rk7"/>
                                 </constraints>

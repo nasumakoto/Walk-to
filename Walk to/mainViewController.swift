@@ -109,7 +109,9 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         
         // DatePickerの設定(日付用)
         inputDatePicker.datePickerMode = UIDatePickerMode.date
+        inputDatePicker.maximumDate = Date()
         txtDate.inputView = inputDatePicker
+        
         
         // キーボードに表示するツールバーの表示
         let pickerToolBar = UIToolbar(frame:CGRect(x:0.0, y:0.0, width:0.0, height:50.0))
@@ -117,6 +119,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         pickerToolBar.barStyle = .blackTranslucent
         pickerToolBar.tintColor = UIColor.white
         pickerToolBar.backgroundColor = UIColor.white
+        
         
         //ボタンの設定
         //右寄せのためのスペース設定
@@ -131,7 +134,6 @@ class mainViewController: UIViewController, UITextFieldDelegate {
 
         if(checkAuthorization())
         {
-            print("yeah")
             if(HKHealthStore.isHealthDataAvailable())
             {
                 recentSteps() { steps, error in
@@ -275,8 +277,6 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         }
 
     }
-    
-    
     
    
     func go () {
