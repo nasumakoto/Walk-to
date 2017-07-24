@@ -50,6 +50,8 @@ class mainViewController: UIViewController, UITextFieldDelegate {
     
     var healtFlag = true // HealthKitが使える時はtrue、使えないときはfalse
     
+    var swipe:UISwipeGestureRecognizer?
+    
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -151,9 +153,24 @@ class mainViewController: UIViewController, UITextFieldDelegate {
 
         }
         
+        swipe = UISwipeGestureRecognizer()
+        //スワイプの方向を決める
+        swipe!.direction = .left
+        //スワイプするときの指の本数
+        swipe!.numberOfTouchesRequired = 1
+        //スワイプしたときのアクション
+        swipe!.addTarget(self, action: "swipeleft")
+        
+        //viewにスワイプジェスチャーを配置
+        self.view.addGestureRecognizer(swipe!)
         
     }
+    
+    func swipeleft(){
+        self.tabBarController!.selectedIndex = 1
 
+    }
+    
     @IBAction func pushBtn(_ sender: UIButton) {
         txtDate.becomeFirstResponder()
     }

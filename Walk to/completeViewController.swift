@@ -16,14 +16,27 @@ class completeViewController: UIViewController {
     
     let now = Date()
     
+    var swipe:UISwipeGestureRecognizer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-
+        swipe = UISwipeGestureRecognizer()
+        //スワイプの方向を決める
+        swipe!.direction = .right
+        //スワイプするときの指の本数
+        swipe!.numberOfTouchesRequired = 1
+        //スワイプしたときのアクション
+        swipe!.addTarget(self, action: "swipeRight")
+        //viewにスワイプジェスチャーを配置
+        self.view.addGestureRecognizer(swipe!)
         
     }
     
+    func swipeRight(){
+        self.tabBarController!.selectedIndex = 1
+    }
+
         // 画面が表示されるたびに毎回発動
         override func viewWillAppear(_ animated: Bool) {
             

@@ -40,13 +40,43 @@ class hereViewController: UIViewController,UITextFieldDelegate {
     var nextClass = NSNumber()
     
     var here = NSNumber()
+    
+    var swipe:UISwipeGestureRecognizer?
+
+    var swipe2:UISwipeGestureRecognizer?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        swipe = UISwipeGestureRecognizer()
+        //スワイプの方向を決める
+        swipe!.direction = .left
+        //スワイプするときの指の本数
+        swipe!.numberOfTouchesRequired = 1
+        //スワイプしたときのアクション
+        swipe!.addTarget(self, action: "swipeleft")
+        //viewにスワイプジェスチャーを配置
+        self.view.addGestureRecognizer(swipe!)
+        
+        swipe2 = UISwipeGestureRecognizer()
+        //スワイプの方向を決める
+        swipe2!.direction = .right
+        //スワイプするときの指の本数
+        swipe2!.numberOfTouchesRequired = 1
+        //スワイプしたときのアクション
+        swipe2!.addTarget(self, action: "swipeRight")
+        //viewにスワイプジェスチャーを配置
+        self.view.addGestureRecognizer(swipe2!)
 
-
+    }
+    
+    func swipeleft(){
+        self.tabBarController!.selectedIndex = 2
+    }
+    
+    func swipeRight(){
+        self.tabBarController!.selectedIndex = 0
     }
     
 

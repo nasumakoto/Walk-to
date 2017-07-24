@@ -321,6 +321,7 @@
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Ldq-uM-YZn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="OfF-A8-dzs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -519,7 +520,7 @@
                             <constraint firstItem="4um-5i-AGD" firstAttribute="leading" secondItem="JSt-3Z-X8a" secondAttribute="trailing" constant="77" id="dfe-TI-b2t"/>
                             <constraint firstItem="rcQ-iE-jwf" firstAttribute="leading" secondItem="zfr-uZ-Wxe" secondAttribute="trailing" constant="3" id="e9O-Fj-lk9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XKl-2u-g5E" secondAttribute="trailing" constant="10" id="eOD-7q-0CO"/>
-                            <constraint firstItem="Zem-Fs-xsL" firstAttribute="centerX" secondItem="JEV-7e-APU" secondAttribute="centerX" id="fDZ-6A-BHA"/>
+                            <constraint firstItem="Zem-Fs-xsL" firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="JEV-7e-APU" secondAttribute="centerX" id="fDZ-6A-BHA"/>
                             <constraint firstItem="7RS-WS-iM0" firstAttribute="leading" secondItem="zP5-x2-ftM" secondAttribute="leadingMargin" constant="37" id="ftb-be-Woe"/>
                             <constraint firstItem="Zem-Fs-xsL" firstAttribute="bottom" secondItem="xal-dl-dWm" secondAttribute="top" id="gpf-rI-BI1"/>
                             <constraint firstItem="VOm-v5-aVz" firstAttribute="trailing" secondItem="zP5-x2-ftM" secondAttribute="trailingMargin" id="h2Q-WS-dq9"/>

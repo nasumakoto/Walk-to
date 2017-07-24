@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,6 +21,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_nbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Knz-ZK-2uP">
+                                <rect key="frame" x="112" y="258" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Knz-ZK-2uP" secondAttribute="height" multiplier="1:1" id="F0R-jV-Rzz"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Knz-ZK-2uP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RhK-VL-eDb"/>
+                            <constraint firstItem="Knz-ZK-2uP" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="238" id="TWy-PO-wr1"/>
+                            <constraint firstItem="Knz-ZK-2uP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pqe-2Y-ZWl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -27,4 +42,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_nbg.png" width="1024" height="1024"/>
+    </resources>
 </document>
