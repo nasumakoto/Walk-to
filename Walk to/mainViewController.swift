@@ -109,6 +109,7 @@ class mainViewController: UIViewController, UITextFieldDelegate {
         
         // DatePickerの設定(日付用)
         inputDatePicker.datePickerMode = UIDatePickerMode.date
+        inputDatePicker.setDate(dateFrom, animated: true)
         inputDatePicker.maximumDate = Date()
         txtDate.inputView = inputDatePicker
         
